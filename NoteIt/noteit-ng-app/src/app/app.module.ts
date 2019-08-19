@@ -11,6 +11,7 @@ import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import { NoteComponent } from './notes/note/note.component';
 import { NoteTextFilterPipe } from './shared/note-text-filter.pipe';
+import { FilesComponent } from './files/files.component';
 
 const appRoutes :Routes = [
   {
@@ -20,6 +21,10 @@ const appRoutes :Routes = [
   {
     path:'feedback',
     component:FeedbackComponent
+  },
+  {
+    path:'files',
+    component:FilesComponent
   },
   {
     path:'',
@@ -40,7 +45,8 @@ const appRoutes :Routes = [
     NotesComponent,
     NotFoundComponent,
     NoteComponent,
-    NoteTextFilterPipe
+    NoteTextFilterPipe,
+    FilesComponent
   ],
   imports: [
     BrowserModule,
