@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 
-
 @Component({
   selector: 'app-files',
   templateUrl: './files.component.html',
@@ -8,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FilesComponent implements OnInit {
 
-  constructor(private jq : Lite) { }
+  constructor() { }
 
   ngOnInit() {
   }
@@ -27,8 +26,26 @@ export class FilesComponent implements OnInit {
 
       const parser = new DOMParser();
       const xml = parser.parseFromString(data, 'text/xml');
-      console.log(xml);
-      xml.
+      const components = xml.getElementsByTagName("Component");
+      const flag = false;
+
+      if(components.length > 0){
+          for(let elem in components){
+            if(
+                components[elem]
+                && components[elem].parentNode
+                && components[elem].children
+                && components[elem].children.hasAttribute
+            ){
+              for(let child in components[elem].children){
+                let child_item = components[elem].children[child];
+                console.log(child_item);
+              }
+            }
+          }
+      }
+
+      console.log(components);
 
     };
     reader.readAsText(f);
